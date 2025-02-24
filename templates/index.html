@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Access</title>
+</head>
+<body>
+    <h2>Grant Access to Your Webcam</h2>
+    <video id="video" autoplay></video>
+    <script>
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById("video").srcObject = stream;
+            } catch (error) {
+                alert("Webcam access denied!");
+            }
+        }
+        startWebcam();
+    </script>
+</body>
+</html>
